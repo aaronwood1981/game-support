@@ -1,25 +1,27 @@
 /* ============================================================
-   Signal Lantern Games
+   Stone & Tankard Games
    Shared stylesheet
    ============================================================ */
 
 :root {
-    --bg: #11141c;
-    --bg-alt: #181d28;
-    --panel: #202736;
+    --bg: #100d0a;
+    --bg-alt: #17120d;
+    --panel: #211910;
+    --panel-soft: #2b2116;
 
-    --text: #f4f2ea;
-    --text-muted: #b8becb;
+    --text: #f6efe2;
+    --text-muted: #c9bda7;
 
-    --accent: #76b5ff;
-    --accent-hover: #95c8ff;
-    --gold: #d8b65b;
+    --accent: #d49a4a;
+    --accent-hover: #efb968;
+    --gold: #e2c16f;
+    --ember: #a64f2a;
 
-    --border: rgba(255,255,255,0.10);
-    --shadow: rgba(0,0,0,0.35);
+    --border: rgba(255, 239, 210, 0.14);
+    --shadow: rgba(0, 0, 0, 0.42);
 
-    --content-width: 980px;
-    --reading-width: 760px;
+    --content-width: 1080px;
+    --reading-width: 780px;
 }
 
 * {
@@ -35,7 +37,9 @@ html {
 body {
     font-family: Georgia, "Times New Roman", serif;
     background:
-        radial-gradient(circle at top, #24304b 0%, #151924 35%, var(--bg) 100%);
+        radial-gradient(circle at top left, rgba(166, 79, 42, 0.28), transparent 34%),
+        radial-gradient(circle at top right, rgba(212, 154, 74, 0.14), transparent 30%),
+        linear-gradient(180deg, #1b130d 0%, var(--bg) 55%, #090706 100%);
     color: var(--text);
     line-height: 1.7;
     min-height: 100vh;
@@ -48,7 +52,7 @@ body {
 a {
     color: var(--accent);
     text-decoration: none;
-    transition: color .2s ease;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 a:hover {
@@ -61,7 +65,7 @@ a:hover {
 
 .site-header {
     border-bottom: 1px solid var(--border);
-    background: rgba(17,20,28,.92);
+    background: rgba(16, 13, 10, 0.92);
     backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
@@ -72,17 +76,20 @@ a:hover {
     max-width: var(--content-width);
     margin: auto;
     padding: 18px 24px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .brand {
-    color: white;
+    color: var(--text);
     font-size: 1.35rem;
     font-weight: bold;
-    letter-spacing: .04em;
+    letter-spacing: 0.04em;
+}
+
+.brand span {
+    color: var(--gold);
 }
 
 .nav-links {
@@ -92,11 +99,11 @@ a:hover {
 
 .nav-links a {
     color: var(--text-muted);
-    font-size: .95rem;
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover {
-    color: white;
+    color: var(--text);
 }
 
 /* ============================================================
@@ -106,11 +113,19 @@ a:hover {
 .container {
     max-width: var(--content-width);
     margin: auto;
-    padding: 60px 24px;
+    padding: 64px 24px;
 }
 
 .reading {
     max-width: var(--reading-width);
+}
+
+.section-label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
 }
 
 /* ============================================================
@@ -118,27 +133,28 @@ a:hover {
    ============================================================ */
 
 .hero {
-    padding: 40px 0 60px;
+    padding: 46px 0 70px;
 }
 
 .hero-tag {
     color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: .18em;
-    font-size: .82rem;
+    letter-spacing: 0.18em;
+    font-size: 0.82rem;
     margin-bottom: 18px;
 }
 
 .hero h1 {
-    font-size: clamp(2.4rem, 6vw, 4.6rem);
-    line-height: 1.05;
-    margin-bottom: 22px;
+    max-width: 900px;
+    font-size: clamp(2.55rem, 6vw, 4.9rem);
+    line-height: 1.04;
+    margin-bottom: 24px;
 }
 
 .hero p {
     color: var(--text-muted);
-    max-width: 720px;
-    font-size: 1.15rem;
+    max-width: 760px;
+    font-size: 1.17rem;
 }
 
 /* ============================================================
@@ -156,29 +172,26 @@ a:hover {
     display: inline-block;
     padding: 12px 22px;
     border-radius: 999px;
-
     border: 1px solid var(--border);
-
-    background: rgba(255,255,255,.05);
-
-    color: white;
-
-    transition: .2s;
+    background: rgba(255, 239, 210, 0.06);
+    color: var(--text);
 }
 
 .button:hover {
-    background: rgba(255,255,255,.10);
+    background: rgba(255, 239, 210, 0.11);
+    border-color: rgba(255, 239, 210, 0.26);
 }
 
 .button.primary {
     background: var(--accent);
-    color: #071019;
+    color: #160f09;
     font-weight: bold;
     border: none;
 }
 
 .button.primary:hover {
     background: var(--accent-hover);
+    color: #160f09;
 }
 
 /* ============================================================
@@ -187,33 +200,62 @@ a:hover {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 22px;
-
-    margin-top: 50px;
+    margin-top: 46px;
 }
 
 .card {
-    background: linear-gradient(
-        180deg,
-        var(--panel),
-        var(--bg-alt)
-    );
-
+    background: linear-gradient(180deg, var(--panel), var(--panel-soft));
     border: 1px solid var(--border);
-
     border-radius: 18px;
-
-    padding: 24px;
-
-    box-shadow: 0 10px 25px var(--shadow);
+    padding: 26px;
+    box-shadow: 0 14px 30px var(--shadow);
 }
 
 .card h2 {
     margin-bottom: 12px;
+    color: var(--text);
 }
 
 .card p {
+    color: var(--text-muted);
+}
+
+.card strong {
+    color: var(--text);
+}
+
+/* ============================================================
+   Feature Sections
+   ============================================================ */
+
+.split-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 50px;
+}
+
+.feature-panel {
+    background: rgba(255, 239, 210, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 30px;
+}
+
+.feature-panel h2 {
+    margin-bottom: 14px;
+}
+
+.feature-panel p {
+    color: var(--text-muted);
+}
+
+.callout {
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
     color: var(--text-muted);
 }
 
@@ -223,7 +265,8 @@ a:hover {
 
 .content h1 {
     margin-bottom: 20px;
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    line-height: 1.1;
 }
 
 .content h2 {
@@ -251,24 +294,18 @@ a:hover {
 
 footer {
     margin-top: 80px;
-
     border-top: 1px solid var(--border);
-
     text-align: center;
-
     color: var(--text-muted);
-
     padding: 30px 20px;
-
-    font-size: .92rem;
+    font-size: 0.92rem;
 }
 
 /* ============================================================
    Responsive
    ============================================================ */
 
-@media (max-width: 700px) {
-
+@media (max-width: 760px) {
     .nav {
         flex-direction: column;
         gap: 16px;
@@ -279,8 +316,15 @@ footer {
         flex-wrap: wrap;
     }
 
-    .hero h1 {
-        font-size: 2.6rem;
+    .hero {
+        padding-top: 28px;
     }
 
+    .hero h1 {
+        font-size: 2.55rem;
+    }
+
+    .split-section {
+        grid-template-columns: 1fr;
+    }
 }
