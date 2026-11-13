@@ -224,6 +224,12 @@ figcaption { position: absolute; bottom: 15px; left: 12px; right: 12px; color: #
 .capture figcaption { position: static; margin: 20px auto 0; font-size: 13px; line-height: 1.6; max-width: 300px; color: var(--muted); }
 .capture figcaption strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 3px; }
 .capture-note { text-align: center; font-size: 11px; margin-top: 32px; }
+.gameplay-video { min-width: 0; width: min(100%, 300px); justify-self: center; }
+.gameplay-video video { display: block; width: 100%; height: auto; aspect-ratio: 480 / 1040; background: var(--deep); border: 1px solid var(--border); border-radius: 15% / 7%; }
+.gameplay-video video:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+.gameplay-video figcaption { position: static; margin-top: 18px; font-size: 12px; line-height: 1.6; }
+.gameplay-video figcaption strong { display: block; color: var(--text); font-weight: 500; }
+.feature-copy > .text-link { margin-top: 24px; }
 .project-section { padding-block: 72px; border-bottom: 1px solid var(--border); }
 .project-section .eyebrow { margin-bottom: 16px; }
 .project-section h2 { font-size: 40px; margin-bottom: 24px; }
